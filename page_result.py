@@ -7,22 +7,22 @@ from PyQt6.QtCore import Qt
 import styles
 
 
+# 맵기 단계(1~5)를 별 기호 문자열로 변환한다
+# 예: 3 -> "★★★☆☆"
 def spicy_stars(level):
-    # 맵기 단계(1~5)를 별 기호 문자열로 변환한다
-    # 예: 3 -> "★★★☆☆"
     return "★" * level + "☆" * (5 - level)
 
 
+# 가격 최솟값과 최댓값을 "X,XXX원 ~ X,XXX원" 형식의 문자열로 변환한다
+# 예: (8000, 12000) -> "8,000원 ~ 12,000원"
 def format_price(price_min, price_max):
-    # 가격 최솟값과 최댓값을 "X,XXX원 ~ X,XXX원" 형식의 문자열로 변환한다
-    # 예: (8000, 12000) -> "8,000원 ~ 12,000원"
     return f"{price_min:,}원 ~ {price_max:,}원"
 
 
+# 결과 화면 위젯
+# go_back: 추천 방식 선택 화면으로 돌아가는 함수
+# 실제 메뉴 데이터는 set_menu()로 별도 전달받는다 (위젯 재생성 없이 내용만 교체)
 class ResultPage(QWidget):
-    # 결과 화면 위젯
-    # go_back: 추천 방식 선택 화면으로 돌아가는 함수
-    # 실제 메뉴 데이터는 set_menu()로 별도 전달받는다 (위젯 재생성 없이 내용만 교체)
 
     def __init__(self, go_back):
         super().__init__()
@@ -106,10 +106,10 @@ class ResultPage(QWidget):
         outer.addStretch(1)
         self.setLayout(outer)
 
+    # 결과 화면에 표시할 메뉴 데이터를 업데이트한다
+    # main.py의 go_result()에서 화면 전환 전에 호출한다
+    # menu: menus.json의 항목 하나 (딕셔너리)
     def set_menu(self, menu):
-        # 결과 화면에 표시할 메뉴 데이터를 업데이트한다
-        # main.py의 go_result()에서 화면 전환 전에 호출한다
-        # menu: menus.json의 항목 하나 (딕셔너리)
         self.name_label.setText(menu["name"])
         self.brand_label.setText(f"브랜드   {menu['brand']}")
         self.price_label.setText(f"가격     {format_price(menu['price_min'], menu['price_max'])}")

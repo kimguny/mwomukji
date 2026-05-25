@@ -35,18 +35,18 @@ SPICY_OPTIONS = [
 ]
 
 
+# 각 섹션(카테고리, 가격대, 맵기) 위에 표시되는 소제목 라벨을 만들어 반환한다
 def make_section_label(text):
-    # 각 섹션(카테고리, 가격대, 맵기) 위에 표시되는 소제목 라벨을 만들어 반환한다
     label = QLabel(text)
     label.setStyleSheet(f"color: {styles.TEXT}; font-size: 14px; font-weight: bold;")
     return label
 
 
+# 선택지 목록을 받아 토글 버튼 그룹을 만들어 반환한다
+# QButtonGroup의 setExclusive(True)로 한 번에 하나만 선택되도록 설정한다
+# 각 버튼에는 setProperty("value", val)로 실제 필터링 값을 저장해둔다
+# 반환: (QButtonGroup 객체, QPushButton 리스트)
 def make_toggle_group(options):
-    # 선택지 목록을 받아 토글 버튼 그룹을 만들어 반환한다
-    # QButtonGroup의 setExclusive(True)로 한 번에 하나만 선택되도록 설정한다
-    # 각 버튼에는 setProperty("value", val)로 실제 필터링 값을 저장해둔다
-    # 반환: (QButtonGroup 객체, QPushButton 리스트)
     group = QButtonGroup()
     group.setExclusive(True)
     buttons = []
@@ -61,10 +61,10 @@ def make_toggle_group(options):
     return group, buttons
 
 
+# 조건 선택 화면 위젯
+# go_back   : 추천 방식 선택 화면으로 돌아가는 함수
+# go_result : 결과 화면으로 이동하는 함수 (필터링된 메뉴를 인자로 전달)
 class SelectPage(QWidget):
-    # 조건 선택 화면 위젯
-    # go_back   : 추천 방식 선택 화면으로 돌아가는 함수
-    # go_result : 결과 화면으로 이동하는 함수 (필터링된 메뉴를 인자로 전달)
 
     def __init__(self, go_back, go_result):
         super().__init__()
@@ -134,8 +134,8 @@ class SelectPage(QWidget):
         # QScrollArea로 감싸서 내용이 많아도 스크롤로 볼 수 있게 한다
         scroll = QScrollArea()
         scroll.setWidget(content)
-        scroll.setWidgetResizable(True)       # 내용 위젯이 스크롤 영역 크기에 맞게 늘어남
-        scroll.setFrameShape(QFrame.Shape.NoFrame)  # 스크롤 영역 테두리 제거
+        scroll.setWidgetResizable(True)            # 내용 위젯이 스크롤 영역 크기에 맞게 늘어남
+        scroll.setFrameShape(QFrame.Shape.NoFrame) # 스크롤 영역 테두리 제거
         scroll.setStyleSheet(styles.WINDOW)
 
         # 뒤로가기 버튼 (추천 방식 선택 화면으로 이동)
@@ -164,21 +164,21 @@ class SelectPage(QWidget):
         outer.addWidget(scroll)
         self.setLayout(outer)
 
+    # 섹션 사이에 표시하는 가로 구분선을 만들어 반환한다
     def make_divider(self):
-        # 섹션 사이에 표시하는 가로 구분선을 만들어 반환한다
         line = QFrame()
         line.setFrameShape(QFrame.Shape.HLine)
         line.setStyleSheet("color: #EEEEEE;")
         return line
 
+    # 추천받기 버튼 클릭 시 실행되는 메서드
+    # 각 그룹에서 선택된 버튼의 값을 읽어 filter_menus에 전달하고,
+    # 필터링 결과에서 랜덤으로 1개를 뽑아 결과 화면으로 이동한다
     def on_recommend(self):
-        # 추천받기 버튼 클릭 시 실행되는 메서드
-        # 각 그룹에서 선택된 버튼의 값을 읽어 filter_menus에 전달하고,
-        # 필터링 결과에서 랜덤으로 1개를 뽑아 결과 화면으로 이동한다
 
+        # 버튼 그룹에서 현재 선택된 버튼의 value 속성을 반환한다
+        # 아무것도 선택되지 않은 경우 None 반환 (상관없음과 동일하게 처리)
         def get_val(group):
-            # 버튼 그룹에서 현재 선택된 버튼의 value 속성을 반환한다
-            # 아무것도 선택되지 않은 경우 None 반환 (상관없음과 동일하게 처리)
             btn = group.checkedButton()
             return btn.property("value") if btn else None
 

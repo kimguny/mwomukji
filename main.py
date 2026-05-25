@@ -10,9 +10,9 @@ from page_result import ResultPage
 import styles
 
 
+# 앱의 메인 창. QStackedWidget을 사용해 여러 페이지를 겹쳐 관리하고,
+# 필요한 페이지를 앞으로 꺼내는 방식으로 화면 전환을 구현한다
 class MainWindow(QMainWindow):
-    # 앱의 메인 창. QStackedWidget을 사용해 여러 페이지를 겹쳐 관리하고,
-    # 필요한 페이지를 앞으로 꺼내는 방식으로 화면 전환을 구현한다
 
     def __init__(self):
         super().__init__()
@@ -37,20 +37,20 @@ class MainWindow(QMainWindow):
         self.stack.addWidget(self.select)  # 2
         self.stack.addWidget(self.result)  # 3
 
+    # 홈 화면으로 이동
     def go_home(self):
-        # 홈 화면으로 이동
         self.stack.setCurrentIndex(0)
 
+    # 추천 방식 선택 화면으로 이동
     def go_mode(self):
-        # 추천 방식 선택 화면으로 이동
         self.stack.setCurrentIndex(1)
 
+    # 조건 선택 화면으로 이동
     def go_select(self):
-        # 조건 선택 화면으로 이동
         self.stack.setCurrentIndex(2)
 
+    # 결과 화면으로 이동. 선택된 메뉴 데이터를 결과 페이지에 전달한 후 전환한다
     def go_result(self, menu):
-        # 결과 화면으로 이동. 선택된 메뉴 데이터를 결과 페이지에 전달한 후 전환한다
         self.result.set_menu(menu)
         self.stack.setCurrentIndex(3)
 

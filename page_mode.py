@@ -7,11 +7,11 @@ from PyQt6.QtCore import Qt
 import styles
 
 
+# 추천 방식 선택 화면 위젯
+# go_back   : 홈 화면으로 돌아가는 함수
+# go_select : 조건 선택 화면으로 이동하는 함수
+# go_result : 결과 화면으로 이동하는 함수 (랜덤 추천 시 바로 호출)
 class ModePage(QWidget):
-    # 추천 방식 선택 화면 위젯
-    # go_back   : 홈 화면으로 돌아가는 함수
-    # go_select : 조건 선택 화면으로 이동하는 함수
-    # go_result : 결과 화면으로 이동하는 함수 (랜덤 추천 시 바로 호출)
 
     def __init__(self, go_back, go_select, go_result):
         super().__init__()
@@ -74,8 +74,8 @@ class ModePage(QWidget):
         outer.addStretch(1)
         self.setLayout(outer)
 
+    # 전체 메뉴에서 조건 없이 무작위로 1개를 뽑아 결과 화면으로 넘긴다
     def on_random(self):
-        # 전체 메뉴에서 조건 없이 무작위로 1개를 뽑아 결과 화면으로 넘긴다
         from menu_data import load_menus
         from random_recommend import pick_random
         menus = load_menus()
