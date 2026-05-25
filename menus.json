@@ -1,0 +1,380 @@
+[
+  {
+    "id": 1,
+    "name": "김치찌개",
+    "category": "한식",
+    "brand": "본가",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 4
+  },
+  {
+    "id": 2,
+    "name": "된장찌개",
+    "category": "한식",
+    "brand": "본가",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 1
+  },
+  {
+    "id": 3,
+    "name": "부대찌개",
+    "category": "한식",
+    "brand": "놀부부대찌개",
+    "price_min": 10000,
+    "price_max": 13000,
+    "spicy_level": 3
+  },
+  {
+    "id": 4,
+    "name": "비빔밥",
+    "category": "한식",
+    "brand": "한솥",
+    "price_min": 7000,
+    "price_max": 9000,
+    "spicy_level": 2
+  },
+  {
+    "id": 5,
+    "name": "삼겹살 도시락",
+    "category": "한식",
+    "brand": "한솥",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 1
+  },
+  {
+    "id": 6,
+    "name": "순두부찌개",
+    "category": "한식",
+    "brand": "본가",
+    "price_min": 8000,
+    "price_max": 11000,
+    "spicy_level": 3
+  },
+  {
+    "id": 7,
+    "name": "짜장면",
+    "category": "중식",
+    "brand": "홍콩반점0410",
+    "price_min": 7000,
+    "price_max": 9000,
+    "spicy_level": 1
+  },
+  {
+    "id": 8,
+    "name": "짬뽕",
+    "category": "중식",
+    "brand": "홍콩반점0410",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 4
+  },
+  {
+    "id": 9,
+    "name": "탕수육",
+    "category": "중식",
+    "brand": "홍콩반점0410",
+    "price_min": 18000,
+    "price_max": 25000,
+    "spicy_level": 1
+  },
+  {
+    "id": 10,
+    "name": "마파두부",
+    "category": "중식",
+    "brand": "판다익스프레스",
+    "price_min": 9000,
+    "price_max": 12000,
+    "spicy_level": 3
+  },
+  {
+    "id": 11,
+    "name": "볶음밥",
+    "category": "중식",
+    "brand": "홍콩반점0410",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 1
+  },
+  {
+    "id": 12,
+    "name": "깐풍기",
+    "category": "중식",
+    "brand": "판다익스프레스",
+    "price_min": 18000,
+    "price_max": 24000,
+    "spicy_level": 2
+  },
+  {
+    "id": 13,
+    "name": "초밥 세트",
+    "category": "일식",
+    "brand": "스시로",
+    "price_min": 15000,
+    "price_max": 25000,
+    "spicy_level": 1
+  },
+  {
+    "id": 14,
+    "name": "라멘",
+    "category": "일식",
+    "brand": "잇푸도",
+    "price_min": 11000,
+    "price_max": 14000,
+    "spicy_level": 2
+  },
+  {
+    "id": 15,
+    "name": "돈카츠",
+    "category": "일식",
+    "brand": "하코야",
+    "price_min": 10000,
+    "price_max": 14000,
+    "spicy_level": 1
+  },
+  {
+    "id": 16,
+    "name": "우동",
+    "category": "일식",
+    "brand": "하코야",
+    "price_min": 8000,
+    "price_max": 11000,
+    "spicy_level": 1
+  },
+  {
+    "id": 17,
+    "name": "규동",
+    "category": "일식",
+    "brand": "요시노야",
+    "price_min": 7000,
+    "price_max": 10000,
+    "spicy_level": 1
+  },
+  {
+    "id": 18,
+    "name": "오야코동",
+    "category": "일식",
+    "brand": "요시노야",
+    "price_min": 8000,
+    "price_max": 11000,
+    "spicy_level": 1
+  },
+  {
+    "id": 19,
+    "name": "파스타",
+    "category": "양식",
+    "brand": "세븐스프링스",
+    "price_min": 12000,
+    "price_max": 17000,
+    "spicy_level": 1
+  },
+  {
+    "id": 20,
+    "name": "스테이크",
+    "category": "양식",
+    "brand": "빕스",
+    "price_min": 25000,
+    "price_max": 40000,
+    "spicy_level": 1
+  },
+  {
+    "id": 21,
+    "name": "리조또",
+    "category": "양식",
+    "brand": "세븐스프링스",
+    "price_min": 13000,
+    "price_max": 17000,
+    "spicy_level": 1
+  },
+  {
+    "id": 22,
+    "name": "햄버거",
+    "category": "패스트푸드",
+    "brand": "맥도날드",
+    "price_min": 6000,
+    "price_max": 10000,
+    "spicy_level": 1
+  },
+  {
+    "id": 23,
+    "name": "와퍼",
+    "category": "패스트푸드",
+    "brand": "버거킹",
+    "price_min": 7000,
+    "price_max": 11000,
+    "spicy_level": 1
+  },
+  {
+    "id": 24,
+    "name": "타코",
+    "category": "패스트푸드",
+    "brand": "타코벨",
+    "price_min": 6000,
+    "price_max": 10000,
+    "spicy_level": 2
+  },
+  {
+    "id": 25,
+    "name": "핫도그 세트",
+    "category": "패스트푸드",
+    "brand": "맥도날드",
+    "price_min": 5000,
+    "price_max": 8000,
+    "spicy_level": 1
+  },
+  {
+    "id": 26,
+    "name": "떡볶이",
+    "category": "분식",
+    "brand": "엽기떡볶이",
+    "price_min": 8000,
+    "price_max": 13000,
+    "spicy_level": 5
+  },
+  {
+    "id": 27,
+    "name": "순한 떡볶이",
+    "category": "분식",
+    "brand": "죠스떡볶이",
+    "price_min": 7000,
+    "price_max": 10000,
+    "spicy_level": 2
+  },
+  {
+    "id": 28,
+    "name": "김밥",
+    "category": "분식",
+    "brand": "바르다김선생",
+    "price_min": 4000,
+    "price_max": 6000,
+    "spicy_level": 1
+  },
+  {
+    "id": 29,
+    "name": "순대국밥",
+    "category": "분식",
+    "brand": "신포우리만두",
+    "price_min": 8000,
+    "price_max": 10000,
+    "spicy_level": 2
+  },
+  {
+    "id": 30,
+    "name": "라볶이",
+    "category": "분식",
+    "brand": "죠스떡볶이",
+    "price_min": 8000,
+    "price_max": 11000,
+    "spicy_level": 3
+  },
+  {
+    "id": 31,
+    "name": "만두",
+    "category": "분식",
+    "brand": "신포우리만두",
+    "price_min": 6000,
+    "price_max": 9000,
+    "spicy_level": 1
+  },
+  {
+    "id": 32,
+    "name": "후라이드 치킨",
+    "category": "치킨",
+    "brand": "교촌치킨",
+    "price_min": 18000,
+    "price_max": 22000,
+    "spicy_level": 1
+  },
+  {
+    "id": 33,
+    "name": "양념 치킨",
+    "category": "치킨",
+    "brand": "BBQ",
+    "price_min": 19000,
+    "price_max": 23000,
+    "spicy_level": 3
+  },
+  {
+    "id": 34,
+    "name": "간장 치킨",
+    "category": "치킨",
+    "brand": "교촌치킨",
+    "price_min": 19000,
+    "price_max": 23000,
+    "spicy_level": 1
+  },
+  {
+    "id": 35,
+    "name": "뿌링클",
+    "category": "치킨",
+    "brand": "bhc",
+    "price_min": 19000,
+    "price_max": 23000,
+    "spicy_level": 1
+  },
+  {
+    "id": 36,
+    "name": "맛초킹",
+    "category": "치킨",
+    "brand": "bhc",
+    "price_min": 19000,
+    "price_max": 23000,
+    "spicy_level": 4
+  },
+  {
+    "id": 37,
+    "name": "황금올리브 치킨",
+    "category": "치킨",
+    "brand": "BBQ",
+    "price_min": 20000,
+    "price_max": 24000,
+    "spicy_level": 1
+  },
+  {
+    "id": 38,
+    "name": "페퍼로니 피자",
+    "category": "피자",
+    "brand": "도미노피자",
+    "price_min": 18000,
+    "price_max": 28000,
+    "spicy_level": 2
+  },
+  {
+    "id": 39,
+    "name": "불고기 피자",
+    "category": "피자",
+    "brand": "피자헛",
+    "price_min": 19000,
+    "price_max": 29000,
+    "spicy_level": 1
+  },
+  {
+    "id": 40,
+    "name": "콤비네이션 피자",
+    "category": "피자",
+    "brand": "피자헛",
+    "price_min": 20000,
+    "price_max": 30000,
+    "spicy_level": 1
+  },
+  {
+    "id": 41,
+    "name": "고구마 피자",
+    "category": "피자",
+    "brand": "도미노피자",
+    "price_min": 18000,
+    "price_max": 27000,
+    "spicy_level": 1
+  },
+  {
+    "id": 42,
+    "name": "포테이토 피자",
+    "category": "피자",
+    "brand": "미스터피자",
+    "price_min": 17000,
+    "price_max": 26000,
+    "spicy_level": 1
+  }
+]
