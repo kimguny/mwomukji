@@ -1,7 +1,6 @@
 # page_select.py
 # 카테고리, 가격대, 맵기 조건을 선택하는 화면
 # 조건을 모두 고른 뒤 추천받기 버튼을 누르면 필터링 후 결과 화면으로 이동한다
-# 담당: 김태민
 
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,

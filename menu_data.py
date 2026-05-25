@@ -1,6 +1,5 @@
 # menu_data.py
 # 메뉴 데이터를 JSON 파일에서 불러오고, 조건에 따라 필터링하는 모듈
-# 담당: 김건
 
 import json
 

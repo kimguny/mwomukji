@@ -1,6 +1,5 @@
 # random_recommend.py
 # 필터링된 메뉴 목록에서 랜덤으로 1개를 뽑는 모듈
-# 담당: 김예람
 
 import random
 

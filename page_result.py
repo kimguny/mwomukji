@@ -1,7 +1,6 @@
 # page_result.py
 # 추천된 메뉴를 보여주는 결과 화면
 # 메뉴명, 브랜드, 가격, 맵기, 카테고리를 카드 형태로 표시한다
-# 담당: 김수현
 
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame
 from PyQt6.QtCore import Qt
