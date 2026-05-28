@@ -76,8 +76,8 @@ class ModePage(QWidget):
 
     # 전체 메뉴에서 조건 없이 무작위로 1개를 뽑아 결과 화면으로 넘긴다
     def on_random(self):
-        from menu_data import load_menus
-        from random_recommend import pick_random
+        from data.menu_data import load_menus
+        from utils.random_recommend import pick_random
         menus = load_menus()
         result = pick_random(menus)
         self.go_result(result)

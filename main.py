@@ -3,10 +3,10 @@
 
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QStackedWidget
-from page_home import HomePage
-from page_mode import ModePage
-from page_select import SelectPage
-from page_result import ResultPage
+from pages.page_home import HomePage
+from pages.page_mode import ModePage
+from pages.page_select import SelectPage
+from pages.page_result import ResultPage
 import styles
 
 

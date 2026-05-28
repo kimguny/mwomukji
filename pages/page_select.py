@@ -7,8 +7,8 @@ from PyQt6.QtWidgets import (
     QLabel, QPushButton, QButtonGroup, QScrollArea, QFrame
 )
 from PyQt6.QtCore import Qt
-from menu_data import load_menus, filter_menus
-from random_recommend import pick_random
+from data.menu_data import load_menus, filter_menus
+from utils.random_recommend import pick_random
 import styles
 
 # 카테고리 선택지: (화면에 표시할 텍스트, 필터링에 사용할 실제 값) 쌍의 리스트
