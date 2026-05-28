@@ -49,13 +49,19 @@ python main.py
 
 ```
 mwomukji/
-├── main.py              # 앱 실행 진입점
-├── styles.py            # 공통 색상 및 버튼 스타일
-├── page_home.py         # 홈 화면
-├── page_mode.py         # 추천 방식 선택 화면
-├── page_select.py       # 조건 선택 화면
-├── page_result.py       # 결과 화면
-├── menu_data.py         # 메뉴 데이터 로드 및 필터링
-├── random_recommend.py  # 랜덤 추천 로직
-└── menus.json           # 메뉴 데이터 (42개)
+├── main.py                      # 앱 실행 진입점, 페이지 연결 및 화면 전환 관리
+├── pages/
+│   ├── page_home.py             # 홈 화면
+│   ├── page_mode.py             # 추천 방식 선택 화면 (랜덤 / 직접 선택)
+│   ├── page_select.py           # 조건 선택 화면 (카테고리, 가격, 맵기)
+│   └── page_result.py           # 결과 화면
+├── utils/
+│   ├── loader.py                # 메뉴 JSON 파일 로드
+│   ├── filter.py                # 조건에 따른 메뉴 필터링
+│   ├── random_recommend.py      # 랜덤 메뉴 추출
+│   └── formatters.py            # 맵기/가격 형식 변환
+├── data/
+│   └── menus.json               # 메뉴 데이터 (126개)
+└── styles/
+    └── theme.py                 # 공통 색상 및 버튼 스타일
 ```
