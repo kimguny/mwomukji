@@ -8,14 +8,12 @@ from utils.filter import filter_menus
 from utils.random_recommend import pick_random
 import styles
 
-# 카테고리 선택지: (표시 텍스트, 필터링 값) 쌍, None이면 필터링 건너뜀
 CATEGORIES = [
     ("한식", "한식"), ("중식", "중식"), ("일식", "일식"),
     ("양식", "양식"), ("분식", "분식"), ("치킨", "치킨"),
     ("피자", "피자"), ("패스트푸드", "패스트푸드"), ("상관없음", None),
 ]
 
-# 가격대 선택지: (표시 텍스트, (최솟값, 최댓값)) 쌍
 PRICE_OPTIONS = [
     ("~1만원", (0, 10000)),
     ("1~2만원", (10000, 20000)),
@@ -23,7 +21,6 @@ PRICE_OPTIONS = [
     ("상관없음", None),
 ]
 
-# 맵기 선택지: (표시 텍스트, 맵기 단계 상한값) 쌍
 SPICY_OPTIONS = [
     ("안매움", 1), ("약간", 2), ("보통", 3),
     ("매움", 4), ("아주매움", 5), ("상관없음", None),
@@ -32,12 +29,11 @@ SPICY_OPTIONS = [
 
 def make_section_label(text):
     label = QLabel(text)
-    label.setStyleSheet(f"color: {styles.TEXT}; font-size: 14px; font-weight: bold;")
+    label.setFont(styles.font(14))
+    label.setStyleSheet(f"color: {styles.TEXT}; background: transparent;")
     return label
 
 
-# 선택지 목록으로 토글 버튼 그룹을 만들어 반환한다
-# setExclusive(True)로 하나만 선택되도록 설정, 각 버튼에 value 속성으로 실제 값 저장
 def make_toggle_group(options):
     group = QButtonGroup()
     group.setExclusive(True)
@@ -47,13 +43,13 @@ def make_toggle_group(options):
         btn.setCheckable(True)
         btn.setCursor(Qt.CursorShape.PointingHandCursor)
         btn.setStyleSheet(styles.TOGGLE_BTN)
+        btn.setFont(styles.font(13))
         btn.setProperty("value", val)
         group.addButton(btn)
         buttons.append(btn)
     return group, buttons
 
 
-# go_back: 추천 방식 선택 화면으로, go_result: 결과 화면으로 이동
 class SelectPage(QWidget):
 
     def __init__(self, go_back, go_result):
@@ -71,7 +67,6 @@ class SelectPage(QWidget):
         content_layout.setSpacing(12)
         content_layout.setContentsMargins(30, 20, 30, 20)
 
-        # 카테고리: 3열 그리드 배치
         content_layout.addWidget(make_section_label("카테고리"))
         cat_grid = QGridLayout()
         cat_grid.setSpacing(8)
@@ -79,7 +74,6 @@ class SelectPage(QWidget):
             cat_grid.addWidget(btn, i // 3, i % 3)
         content_layout.addLayout(cat_grid)
 
-        # 가격대: 한 줄 배치
         content_layout.addSpacing(8)
         content_layout.addWidget(self.make_divider())
         content_layout.addWidget(make_section_label("가격대"))
@@ -89,7 +83,6 @@ class SelectPage(QWidget):
             price_row.addWidget(btn)
         content_layout.addLayout(price_row)
 
-        # 맵기: 한 줄 배치
         content_layout.addSpacing(8)
         content_layout.addWidget(self.make_divider())
         content_layout.addWidget(make_section_label("맵기"))
@@ -102,16 +95,17 @@ class SelectPage(QWidget):
         content_layout.addSpacing(12)
         content_layout.addWidget(self.make_divider())
 
-        # 오류 메시지: 조건에 맞는 메뉴가 없을 때 표시
         self.error_label = QLabel("")
         self.error_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.error_label.setStyleSheet("color: #E53935; font-size: 13px;")
+        self.error_label.setFont(styles.font(13))
+        self.error_label.setStyleSheet("color: #E53935; background: transparent;")
         content_layout.addWidget(self.error_label)
 
         recommend_btn = QPushButton("추천받기")
-        recommend_btn.setFixedSize(220, 52)
+        recommend_btn.setFixedSize(200, 52)
         recommend_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         recommend_btn.setStyleSheet(styles.PRIMARY_BTN)
+        recommend_btn.setFont(styles.font(15))
         recommend_btn.clicked.connect(self.on_recommend)
         content_layout.addWidget(recommend_btn, alignment=Qt.AlignmentFlag.AlignCenter)
         content_layout.addSpacing(10)
@@ -124,10 +118,11 @@ class SelectPage(QWidget):
         scroll.setFrameShape(QFrame.Shape.NoFrame)
         scroll.setStyleSheet(styles.WINDOW)
 
-        back_btn = QPushButton("< 뒤로")
-        back_btn.setFixedSize(80, 34)
+        back_btn = QPushButton("← 뒤로")
+        back_btn.setFixedSize(72, 32)
         back_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         back_btn.setStyleSheet(styles.BACK_BTN)
+        back_btn.setFont(styles.font(13))
         back_btn.clicked.connect(go_back)
 
         top_row = QHBoxLayout()
@@ -137,7 +132,8 @@ class SelectPage(QWidget):
 
         title = QLabel("조건을 선택하세요")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(f"color: {styles.TEXT}; font-size: 22px; font-weight: bold;")
+        title.setFont(styles.font(22))
+        title.setStyleSheet(f"color: {styles.TEXT}; background: transparent;")
 
         outer = QVBoxLayout()
         outer.setContentsMargins(0, 0, 0, 0)
@@ -147,7 +143,12 @@ class SelectPage(QWidget):
         outer.addWidget(scroll)
         self.setLayout(outer)
 
-    # 모든 토글 버튼 선택 해제 및 오류 메시지 초기화
+    def make_divider(self):
+        line = QFrame()
+        line.setFrameShape(QFrame.Shape.HLine)
+        line.setStyleSheet(f"color: {styles.BORDER};")
+        return line
+
     def reset(self):
         for group in [self.cat_group, self.price_group, self.spicy_group]:
             group.setExclusive(False)
@@ -156,16 +157,7 @@ class SelectPage(QWidget):
             group.setExclusive(True)
         self.error_label.setText("")
 
-    def make_divider(self):
-        line = QFrame()
-        line.setFrameShape(QFrame.Shape.HLine)
-        line.setStyleSheet("color: #EEEEEE;")
-        return line
-
-    # 선택된 조건으로 필터링 후 랜덤 1개를 뽑아 결과 화면으로 이동한다
     def on_recommend(self):
-
-        # 그룹에서 선택된 버튼의 value를 반환, 없으면 None
         def get_val(group):
             btn = group.checkedButton()
             return btn.property("value") if btn else None
