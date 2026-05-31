@@ -1,66 +1,90 @@
-BG = "#FFFDE7"       # 배경색: 연노랑 크림
-TEXT = "#1A1A1A"     # 기본 텍스트: 진한 검정
-SUBTEXT = "#555555"  # 보조 텍스트: 중간 회색
+import os
+from PyQt6.QtGui import QFont, QFontDatabase
 
-YELLOW = "#F5D800"
-YELLOW_HOVER = "#E5C800"
-YELLOW_PRESSED = "#CCB200"
+BG         = "white"
+WHITE      = "#FFFFFF"
+TEXT       = "#2D2B55"
+SUBTEXT    = "#8B87B0"
+ACCENT     = "#A78BFA"
+ACCENT2    = "#7DD3FC"
+PINK       = "#F9A8D4"
+BORDER     = "#E5E0FF"
+BG_START   = "#EDE9FF"
 
-WINDOW = f"background-color: {BG};"
+WINDOW = "background-color: white;"
 
-# 주요 버튼 (노란 배경)
 PRIMARY_BTN = f"""
     QPushButton {{
-        background-color: {YELLOW};
-        color: {TEXT};
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 {ACCENT}, stop:1 {ACCENT2});
+        color: white;
         font-size: 15px;
         font-weight: bold;
-        border-radius: 14px;
+        border-radius: 26px;
         border: none;
     }}
-    QPushButton:hover {{ background-color: {YELLOW_HOVER}; }}
-    QPushButton:pressed {{ background-color: {YELLOW_PRESSED}; }}
+    QPushButton:hover {{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 #9B72F0, stop:1 #60C0F8);
+    }}
+    QPushButton:pressed {{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 #8B62E0, stop:1 #50B0E8);
+    }}
 """
 
-# 외곽선 버튼 (투명 배경, 회색 테두리)
 OUTLINE_BTN = f"""
     QPushButton {{
-        background-color: transparent;
+        background-color: white;
         color: {TEXT};
         font-size: 15px;
-        border-radius: 14px;
-        border: 1px solid #BBBBBB;
+        border-radius: 26px;
+        border: 1px solid {BORDER};
     }}
-    QPushButton:hover {{ background-color: rgba(0,0,0,0.04); }}
-    QPushButton:pressed {{ background-color: rgba(0,0,0,0.08); }}
+    QPushButton:hover {{ background-color: {BG_START}; }}
+    QPushButton:pressed {{ background-color: {BORDER}; }}
 """
 
-# 뒤로가기 버튼
-BACK_BTN = """
-    QPushButton {
-        background-color: transparent;
-        color: #999999;
+BACK_BTN = f"""
+    QPushButton {{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 {ACCENT}, stop:1 {ACCENT2});
+        color: white;
         font-size: 13px;
+        font-weight: bold;
         border: none;
-        padding: 4px 8px;
-        border-radius: 8px;
-    }
-    QPushButton:hover {
-        background-color: rgba(0,0,0,0.05);
-        color: #444444;
-    }
+        padding: 4px 12px;
+        border-radius: 16px;
+    }}
+    QPushButton:hover {{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 #9B72F0, stop:1 #60C0F8);
+    }}
 """
 
-# 토글 버튼 (선택 안됨: 흰 배경 / 선택됨: 노란 배경)
 TOGGLE_BTN = f"""
     QPushButton {{
         background-color: white;
         color: {TEXT};
         font-size: 13px;
-        border-radius: 10px;
-        border: 1px solid #E0E0E0;
+        border-radius: 16px;
+        border: 1px solid {BORDER};
         padding: 7px 14px;
     }}
-    QPushButton:checked {{ background-color: {YELLOW}; border: none; }}
-    QPushButton:hover:!checked {{ background-color: #F5F5F5; }}
+    QPushButton:checked {{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+            stop:0 {ACCENT}, stop:1 {ACCENT2});
+        color: white;
+        border: none;
+    }}
+    QPushButton:hover:!checked {{ background-color: {BG_START}; }}
 """
+
+def load_fonts():
+    base = os.path.join(os.path.dirname(os.path.dirname(__file__)), "fonts")
+    QFontDatabase.addApplicationFont(os.path.join(base, "KERISKEDU_B.otf"))
+    QFontDatabase.addApplicationFont(os.path.join(base, "KERISKEDU_R.otf"))
+    QFontDatabase.addApplicationFont(os.path.join(base, "KERISKEDU_Line.otf"))
+
+def font(size):
+    return QFont("KERIS KEDU OTF", size)
