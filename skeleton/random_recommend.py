@@ -7,3 +7,10 @@ def pick_random(menus):
     #       아니면 menus에서 랜덤으로 1개를 골라 반환하라
     #       힌트: random.choice(리스트) 를 사용하면 랜덤으로 1개를 고를 수 있다
     pass
+
+
+# 메뉴 리스트에서 특정 메뉴를 제거한다
+def remove_menu(menus, menu):
+    # TODO: menus 리스트에서 menu를 제거하라
+    #       힌트: 리스트.remove(항목)
+    pass

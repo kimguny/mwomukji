@@ -8,11 +8,6 @@ def pick_random(menus):
     return random.choice(menus)
 
 
-# 메뉴 리스트에서 무작위로 1개를 뽑아 반환하고, 원본 리스트에서 제거한다
-# 중복 없이 순차적으로 추천할 때 사용한다
-def pick_and_remove(menus):
-    if not menus:
-        return None
-    menu = random.choice(menus)
+# 메뉴 리스트에서 특정 메뉴를 제거한다
+def remove_menu(menus, menu):
     menus.remove(menu)
-    return menu

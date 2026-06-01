@@ -5,7 +5,6 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt
 from utils.loader import load_menus
 from utils.filter import filter_menus
-from utils.random_recommend import pick_random
 import styles
 
 CATEGORIES = [
@@ -61,6 +60,9 @@ class SelectPage(QWidget):
         self.price_group, price_btns = make_toggle_group(PRICE_OPTIONS)
         self.spicy_group, spicy_btns = make_toggle_group(SPICY_OPTIONS)
 
+        for btn in cat_btns + price_btns + spicy_btns:
+            btn.clicked.connect(self.update_count)
+
         content = QWidget()
         content.setStyleSheet(styles.WINDOW)
         content_layout = QVBoxLayout()
@@ -95,11 +97,12 @@ class SelectPage(QWidget):
         content_layout.addSpacing(12)
         content_layout.addWidget(self.make_divider())
 
-        self.error_label = QLabel("")
-        self.error_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.error_label.setFont(styles.font(13))
-        self.error_label.setStyleSheet("color: #E53935; background: transparent;")
-        content_layout.addWidget(self.error_label)
+        self.count_label = QLabel("")
+        self.count_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.count_label.setFont(styles.font(13))
+        self.count_label.setStyleSheet(f"color: {styles.ACCENT}; background: transparent;")
+        content_layout.addWidget(self.count_label)
+
 
         recommend_btn = QPushButton("추천받기")
         recommend_btn.setFixedSize(200, 52)
@@ -155,7 +158,27 @@ class SelectPage(QWidget):
             for btn in group.buttons():
                 btn.setChecked(False)
             group.setExclusive(True)
-        self.error_label.setText("")
+        self.count_label.setText("")
+
+    def update_count(self):
+        def get_val(group):
+            btn = group.checkedButton()
+            return btn.property("value") if btn else None
+
+        menus = load_menus()
+        filtered = filter_menus(
+            menus,
+            category=get_val(self.cat_group),
+            price_range=get_val(self.price_group),
+            spicy_level=get_val(self.spicy_group),
+        )
+        count = len(filtered)
+        if count == 0:
+            self.count_label.setText("조건에 맞는 메뉴가 없어요")
+            self.count_label.setStyleSheet("color: #E53935; background: transparent;")
+        else:
+            self.count_label.setText(f"추천 후보 {count}개")
+            self.count_label.setStyleSheet(f"color: {styles.ACCENT}; background: transparent;")
 
     def on_recommend(self):
         def get_val(group):
@@ -169,8 +192,5 @@ class SelectPage(QWidget):
             price_range=get_val(self.price_group),
             spicy_level=get_val(self.spicy_group),
         )
-        if not filtered:
-            self.error_label.setText("조건에 맞는 메뉴가 없어요. 조건을 바꿔보세요!")
-        else:
-            self.error_label.setText("")
+        if filtered:
             self.go_result(filtered)

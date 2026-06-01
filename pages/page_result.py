@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from utils.formatters import spicy_stars, format_price
-from utils.random_recommend import pick_and_remove
+from utils.random_recommend import pick_random, remove_menu
 import styles
 
 
@@ -147,9 +147,10 @@ class ResultPage(QWidget):
         self._pick_next()
 
     def _pick_next(self):
-        menu = pick_and_remove(self.remaining)
+        menu = pick_random(self.remaining)
         if menu is None:
             return
+        remove_menu(self.remaining, menu)
         self._update_card(menu)
         if self.history:
             self._add_history_item(self.history[-1])
