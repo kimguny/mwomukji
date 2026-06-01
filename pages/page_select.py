@@ -169,10 +169,8 @@ class SelectPage(QWidget):
             price_range=get_val(self.price_group),
             spicy_level=get_val(self.spicy_group),
         )
-        result = pick_random(filtered)
-
-        if result is None:
+        if not filtered:
             self.error_label.setText("조건에 맞는 메뉴가 없어요. 조건을 바꿔보세요!")
         else:
             self.error_label.setText("")
-            self.go_result(result)
+            self.go_result(filtered)

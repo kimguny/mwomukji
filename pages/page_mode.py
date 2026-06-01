@@ -66,7 +66,5 @@ class ModePage(QWidget):
 
     def on_random(self):
         from utils.loader import load_menus
-        from utils.random_recommend import pick_random
         menus = load_menus()
-        result = pick_random(menus)
-        self.go_result(result)
+        self.go_result(menus)

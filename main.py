@@ -40,9 +40,9 @@ class MainWindow(QMainWindow):
         self.select.reset()
         self.stack.setCurrentIndex(2)
 
-    # 메뉴 데이터를 결과 페이지에 전달한 후 결과 화면으로 전환한다
-    def go_result(self, menu):
-        self.result.set_menu(menu)
+    # 필터링된 전체 메뉴 리스트를 결과 페이지에 전달한 후 결과 화면으로 전환한다
+    def go_result(self, menus):
+        self.result.start(menus)
         self.stack.setCurrentIndex(3)
 
 
