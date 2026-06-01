@@ -62,6 +62,12 @@ mwomukji/
 │   └── formatters.py            # 맵기/가격 형식 변환
 ├── data/
 │   └── menus.json               # 메뉴 데이터 (126개)
-└── styles/
-    └── theme.py                 # 공통 색상 및 버튼 스타일
+├── styles/
+│   └── theme.py                 # 공통 색상 및 버튼 스타일
+├── fonts/
+│   └── KERISKEDU_*.otf          # 앱 전체에 적용되는 폰트
+└── skeleton/
+    ├── random_recommend.py      # 팀원 코딩용 스켈레톤 (김예람)
+    ├── filter.py                # 팀원 코딩용 스켈레톤 (김수현)
+    └── formatters.py            # 팀원 코딩용 스켈레톤 (김태민)
 ```
