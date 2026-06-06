@@ -167,10 +167,10 @@ class ResultPage(QWidget):
         if menu is None:
             return
         remove_menu(self.remaining, menu)
-        self._update_card(menu)
         if self.history:
-            self._add_history_item(self.history[-1])
+            self._add_history_item()
         self.history.append(menu)
+        self._update_card(menu)
         if not self.remaining:
             self.again_btn.setEnabled(False)
             self.again_btn.setText("더 이상 없어요")
@@ -185,8 +185,8 @@ class ResultPage(QWidget):
         self.spicy_label.setText(spicy_stars(menu["spicy_level"]))
         self.cat_label.setText(menu["category"])
 
-    def _add_history_item(self, menu):
-        names = [m["name"] for m in self.history[:-1]]
+    def _add_history_item(self):
+        names = [m["name"] for m in self.history]
         self.history_label.setText("  ·  ".join(names))
 
     def _clear_history_ui(self):
