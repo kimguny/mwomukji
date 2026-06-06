@@ -96,26 +96,44 @@ class ResultPage(QWidget):
         self.again_btn.clicked.connect(self.on_again)
 
         # 이미 나온 메뉴 목록 영역
-        self.history_title = QLabel("이미 나온 메뉴")
-        self.history_title.setFont(styles.font(12))
-        self.history_title.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
-        self.history_title.hide()
+        history_title = QLabel("이미 나온 메뉴")
+        history_title.setFont(styles.font(12))
+        history_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        history_title.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
 
-        self.history_layout = QVBoxLayout()
-        self.history_layout.setSpacing(4)
+        self.history_label = QLabel("")
+        self.history_label.setFont(styles.font(12))
+        self.history_label.setWordWrap(True)
+        self.history_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.history_label.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
 
-        history_container = QWidget()
-        history_container.setStyleSheet("background: transparent;")
-        history_container.setLayout(self.history_layout)
+        history_scroll = QScrollArea()
+        history_scroll.setWidget(self.history_label)
+        history_scroll.setWidgetResizable(True)
+        history_scroll.setFrameShape(QFrame.Shape.NoFrame)
+        history_scroll.setFixedHeight(70)
+        history_scroll.setStyleSheet("background: transparent; border: none;")
+        self.history_scroll = history_scroll
 
-        scroll = QScrollArea()
-        scroll.setWidget(history_container)
-        scroll.setWidgetResizable(True)
-        scroll.setFrameShape(QFrame.Shape.NoFrame)
-        scroll.setMaximumHeight(120)
-        scroll.setStyleSheet(styles.WINDOW)
-        self.history_scroll = scroll
-        self.history_scroll.hide()
+        history_card = QFrame()
+        history_card.setFixedWidth(320)
+        history_card.setStyleSheet(f"""
+            QFrame#historyCard {{
+                background-color: {styles.WHITE};
+                border-radius: 16px;
+                border: 1px solid {styles.BORDER};
+            }}
+            QLabel {{ border: none; background: transparent; }}
+            QScrollArea {{ border: none; background: transparent; }}
+        """)
+        history_card.setObjectName("historyCard")
+        history_card_layout = QVBoxLayout()
+        history_card_layout.setContentsMargins(16, 12, 16, 12)
+        history_card_layout.setSpacing(6)
+        history_card_layout.addWidget(history_title)
+        history_card_layout.addWidget(self.history_scroll)
+        history_card.setLayout(history_card_layout)
+        self.history_card = history_card
 
         center = QVBoxLayout()
         center.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -126,9 +144,9 @@ class ResultPage(QWidget):
         center.addWidget(card, alignment=Qt.AlignmentFlag.AlignCenter)
         center.addSpacing(16)
         center.addWidget(self.again_btn, alignment=Qt.AlignmentFlag.AlignCenter)
+
         center.addSpacing(16)
-        center.addWidget(self.history_title, alignment=Qt.AlignmentFlag.AlignCenter)
-        center.addWidget(self.history_scroll)
+        center.addWidget(self.history_card, alignment=Qt.AlignmentFlag.AlignCenter)
 
         outer.addLayout(top_row)
         outer.addStretch(1)
@@ -141,8 +159,6 @@ class ResultPage(QWidget):
         self.remaining = menus[:]
         self.history = []
         self._clear_history_ui()
-        self.history_title.hide()
-        self.history_scroll.hide()
         self.again_btn.setEnabled(True)
         self._pick_next()
 
@@ -170,16 +186,8 @@ class ResultPage(QWidget):
         self.cat_label.setText(menu["category"])
 
     def _add_history_item(self, menu):
-        self.history_title.show()
-        self.history_scroll.show()
-        lbl = QLabel(f"· {menu['name']}  ({menu['category']})")
-        lbl.setFont(styles.font(12))
-        lbl.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
-        lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.history_layout.addWidget(lbl)
+        names = [m["name"] for m in self.history[:-1]]
+        self.history_label.setText("  ·  ".join(names))
 
     def _clear_history_ui(self):
-        while self.history_layout.count():
-            item = self.history_layout.takeAt(0)
-            if item.widget():
-                item.widget().deleteLater()
+        self.history_label.setText("")
