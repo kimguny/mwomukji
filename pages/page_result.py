@@ -3,8 +3,8 @@ from PyQt6.QtWidgets import (
     QFrame, QScrollArea
 )
 from PyQt6.QtCore import Qt
-from utils.formatters import spicy_stars, format_price
-from utils.random_recommend import pick_random, remove_menu
+from utils.formatters import spicy_stars, format_price, format_history
+from utils.random_recommend import pick_random, remove_menu, is_empty
 import styles
 
 
@@ -171,7 +171,7 @@ class ResultPage(QWidget):
             self._add_history_item()
         self.history.append(menu)
         self._update_card(menu)
-        if not self.remaining:
+        if is_empty(self.remaining):
             self.again_btn.setEnabled(False)
             self.again_btn.setText("더 이상 없어요")
 
@@ -186,8 +186,7 @@ class ResultPage(QWidget):
         self.cat_label.setText(menu["category"])
 
     def _add_history_item(self):
-        names = [m["name"] for m in self.history]
-        self.history_label.setText("  ·  ".join(names))
+        self.history_label.setText(format_history(self.history))
 
     def _clear_history_ui(self):
         self.history_label.setText("")

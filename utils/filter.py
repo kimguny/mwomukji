@@ -1,6 +1,3 @@
-import json
-
-
 # 조건에 맞는 메뉴만 걸러서 반환한다. 조건이 None이면 해당 항목은 건너뛴다
 # category: 카테고리 문자열 / price_range: (최솟값, 최댓값) 튜플 / spicy_level: 맵기 상한값
 def filter_menus(menus, category=None, price_range=None, spicy_level=None):
@@ -20,3 +17,8 @@ def filter_menus(menus, category=None, price_range=None, spicy_level=None):
         result = [m for m in result if m["spicy_level"] <= spicy_level]
 
     return result
+
+
+# 조건에 맞는 메뉴 개수를 반환한다
+def count_filtered(menus, category=None, price_range=None, spicy_level=None):
+    return len(filter_menus(menus, category, price_range, spicy_level))

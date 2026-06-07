@@ -6,3 +6,8 @@ def spicy_stars(level):
 # 가격 최솟값과 최댓값을 "X,XXX원 ~ X,XXX원" 형식으로 변환한다
 def format_price(price_min, price_max):
     return f"{price_min:,}원 ~ {price_max:,}원"
+
+
+# 히스토리 메뉴 리스트를 "메뉴1  ·  메뉴2  ·  메뉴3" 형식 문자열로 변환한다
+def format_history(history):
+    return "  ·  ".join([m["name"] for m in history])

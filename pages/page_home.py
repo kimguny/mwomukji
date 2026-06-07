@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
 from PyQt6.QtCore import Qt
+from utils.loader import get_menu_count
 import styles
 
 
@@ -23,6 +24,11 @@ class HomePage(QWidget):
         subtitle.setFont(styles.font(14))
         subtitle.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
 
+        count_label = QLabel(f"총 {get_menu_count()}개 메뉴 중 추천")
+        count_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        count_label.setFont(styles.font(12))
+        count_label.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
+
         btn = QPushButton("추천받기")
         btn.setFixedSize(200, 52)
         btn.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -34,7 +40,9 @@ class HomePage(QWidget):
         layout.addWidget(title)
         layout.addSpacing(10)
         layout.addWidget(subtitle)
-        layout.addSpacing(36)
+        layout.addSpacing(6)
+        layout.addWidget(count_label)
+        layout.addSpacing(30)
         layout.addWidget(btn, alignment=Qt.AlignmentFlag.AlignCenter)
         layout.addStretch(3)
 

@@ -5,3 +5,14 @@ import json
 def load_menus():
     with open("data/menus.json", "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# 전체 메뉴 개수를 반환한다
+def get_menu_count():
+    return len(load_menus())
+
+
+# 전체 메뉴에서 카테고리 목록을 중복 없이 반환한다
+def get_categories():
+    menus = load_menus()
+    return list(dict.fromkeys(m["category"] for m in menus))

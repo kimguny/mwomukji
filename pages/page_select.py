@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from utils.loader import load_menus
-from utils.filter import filter_menus
+from utils.filter import filter_menus, count_filtered
 import styles
 
 CATEGORIES = [
@@ -166,13 +166,12 @@ class SelectPage(QWidget):
             return btn.property("value") if btn else None
 
         menus = load_menus()
-        filtered = filter_menus(
+        count = count_filtered(
             menus,
             category=get_val(self.cat_group),
             price_range=get_val(self.price_group),
             spicy_level=get_val(self.spicy_group),
         )
-        count = len(filtered)
         if count == 0:
             self.count_label.setText("조건에 맞는 메뉴가 없어요")
             self.count_label.setStyleSheet("color: #E53935; background: transparent;")
