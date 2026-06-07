@@ -52,14 +52,15 @@ mwomukji/
 ├── main.py                      # 앱 실행 진입점, 페이지 연결 및 화면 전환 관리
 ├── pages/
 │   ├── page_home.py             # 홈 화면
-│   ├── page_mode.py             # 추천 방식 선택 화면 (랜덤 / 직접 선택)
+│   ├── page_mode.py             # 추천 방식 선택 화면 (랜덤 / 직접 선택 / 카테고리 탐색)
 │   ├── page_select.py           # 조건 선택 화면 (카테고리, 가격, 맵기)
-│   └── page_result.py           # 결과 화면
+│   ├── page_result.py           # 결과 화면
+│   └── page_browse.py           # 카테고리 탐색 화면
 ├── utils/
-│   ├── loader.py                # 메뉴 JSON 파일 로드
-│   ├── filter.py                # 조건에 따른 메뉴 필터링
+│   ├── loader.py                # 메뉴 JSON 파일 로드 및 카테고리별 조회
+│   ├── filter.py                # 조건에 따른 메뉴 필터링 및 정렬
 │   ├── random_recommend.py      # 랜덤 메뉴 추출
-│   └── formatters.py            # 맵기/가격 형식 변환
+│   └── formatters.py            # 맵기/가격/메뉴 형식 변환
 ├── data/
 │   └── menus.json               # 메뉴 데이터 (126개)
 ├── styles/
