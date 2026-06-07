@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from utils.formatters import spicy_stars, format_price, format_history
-from utils.random_recommend import pick_random, remove_menu, is_empty
+from utils.random_recommend import pick_random, remove_menu, is_empty, count_remaining
 import styles
 
 
@@ -113,8 +113,17 @@ class ResultPage(QWidget):
         # 이미 나온 메뉴 목록 영역
         history_title = QLabel("이미 나온 메뉴")
         history_title.setFont(styles.font(12))
-        history_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         history_title.setStyleSheet(f"color: {styles.SUBTEXT}; background: transparent;")
+
+        self.remaining_label = QLabel("")
+        self.remaining_label.setFont(styles.font(12))
+        self.remaining_label.setAlignment(Qt.AlignmentFlag.AlignRight)
+        self.remaining_label.setStyleSheet(f"color: {styles.ACCENT}; background: transparent;")
+
+        history_header = QHBoxLayout()
+        history_header.addWidget(history_title)
+        history_header.addStretch()
+        history_header.addWidget(self.remaining_label)
 
         self.history_label = QLabel("")
         self.history_label.setFont(styles.font(12))
@@ -145,7 +154,7 @@ class ResultPage(QWidget):
         history_card_layout = QVBoxLayout()
         history_card_layout.setContentsMargins(16, 12, 16, 12)
         history_card_layout.setSpacing(6)
-        history_card_layout.addWidget(history_title)
+        history_card_layout.addLayout(history_header)
         history_card_layout.addWidget(self.history_scroll)
         history_card.setLayout(history_card_layout)
         self.history_card = history_card
@@ -204,9 +213,11 @@ class ResultPage(QWidget):
             self._add_history_item()
         self.history.append(menu)
         self._update_card(menu)
+        self.remaining_label.setText(f"남은 {count_remaining(self.remaining)}개")
         if is_empty(self.remaining):
             self.again_btn.setEnabled(False)
             self.again_btn.setText("더 이상 없어요")
+            self.remaining_label.setText("남은 0개")
 
     def on_again(self):
         if self.mode == "random":
@@ -226,3 +237,4 @@ class ResultPage(QWidget):
 
     def _clear_history_ui(self):
         self.history_label.setText("")
+        self.remaining_label.setText("")

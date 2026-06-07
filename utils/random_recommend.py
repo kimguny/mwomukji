@@ -16,3 +16,8 @@ def remove_menu(menus, menu):
 # 메뉴 리스트가 비어있는지 확인한다
 def is_empty(menus):
     return len(menus) == 0
+
+
+# 메뉴 리스트에 남은 메뉴 개수를 반환한다
+def count_remaining(menus):
+    return len(menus)
