@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 501.67 1100.75">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 49.34px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #eb5e33;
+      }
+
+      .cls-1, .cls-5 {
+        font-family: KIMWILDgag-Bold, 'KIMWILDgag Bold';
+      }
+
+      .cls-1, .cls-5, .cls-6 {
+        font-weight: 700;
+      }
+
+      .cls-7 {
+        filter: url(#drop-shadow-18);
+      }
+
+      .cls-8, .cls-9 {
+        fill: #d4d5da;
+      }
+
+      .cls-8, .cls-3 {
+        font-family: Pretendard-SemiBold-KSCpc-EUC-H, Pretendard;
+        font-size: 13.48px;
+        font-weight: 600;
+      }
+
+      .cls-10 {
+        filter: url(#drop-shadow-16);
+      }
+
+      .cls-11 {
+        fill: url(#_무제_그라디언트_12);
+      }
+
+      .cls-12 {
+        filter: url(#drop-shadow-21);
+      }
+
+      .cls-13 {
+        filter: url(#drop-shadow-17);
+      }
+
+      .cls-14 {
+        filter: url(#drop-shadow-19);
+      }
+
+      .cls-15 {
+        fill: #888988;
+      }
+
+      .cls-15, .cls-2, .cls-16 {
+        font-family: esamanruLight, esamanruLight;
+        font-size: 14px;
+      }
+
+      .cls-17 {
+        fill: url(#_무제_그라디언트_3-2);
+      }
+
+      .cls-17, .cls-18 {
+        stroke: #fff;
+      }
+
+      .cls-17, .cls-18, .cls-19 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-20, .cls-21 {
+        font-family: esamanruMedium, esamanruMedium;
+        font-size: 20px;
+      }
+
+      .cls-21, .cls-22 {
+        fill: #060404;
+      }
+
+      .cls-23, .cls-6 {
+        fill: #f8f6f1;
+      }
+
+      .cls-5 {
+        font-size: 23.34px;
+      }
+
+      .cls-5, .cls-16, .cls-19 {
+        fill: #fff;
+      }
+
+      .cls-24 {
+        fill: url(#_무제_그라디언트_12-2);
+      }
+
+      .cls-25 {
+        filter: url(#drop-shadow-20);
+      }
+
+      .cls-18 {
+        fill: url(#_무제_그라디언트_3-3);
+      }
+
+      .cls-19 {
+        stroke: #eb5e33;
+      }
+
+      .cls-26 {
+        fill: url(#_무제_그라디언트_3);
+      }
+
+      .cls-27 {
+        filter: url(#drop-shadow-15);
+      }
+
+      .cls-6 {
+        font-family: Pretendard-ExtraBold-KSCpc-EUC-H, Pretendard;
+        font-size: 25px;
+      }
+    </style>
+    <linearGradient id="_무제_그라디언트_3" data-name="무제 그라디언트 3" x1="0" y1="67.27" x2="501.67" y2="67.27" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eb5e33"/>
+      <stop offset=".41" stop-color="#eb5e33"/>
+    </linearGradient>
+    <filter id="drop-shadow-15" x="141.89" y="832.34" width="223.68" height="65.04" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="_무제_그라디언트_12" data-name="무제 그라디언트 12" x1="250.83" y1="885.78" x2="250.83" y2="838.09" gradientUnits="userSpaceOnUse">
+      <stop offset=".46" stop-color="#eb5e33"/>
+      <stop offset="1" stop-color="#e1772d"/>
+    </linearGradient>
+    <filter id="drop-shadow-16" x="52.13" y="618.98" width="402.96" height="54.96" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-17" x="52.13" y="724.58" width="402.96" height="55.2" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-3" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-3" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-18" x="52.49" y="407.54" width="196.32" height="54.96" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-4" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-4" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-19" x="259.01" y="407.54" width="196.08" height="54.96" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-5" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-5" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="_무제_그라디언트_3-2" data-name="무제 그라디언트 3" x1="354.2" y1="450.5" x2="354.2" y2="413.76" xlink:href="#_무제_그라디언트_3"/>
+    <filter id="drop-shadow-20" x="52.49" y="513.14" width="196.32" height="55.2" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-6" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-6" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-21" x="259.01" y="513.14" width="196.08" height="55.2" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.83" dy="2.83"/>
+      <feGaussianBlur result="blur-7" stdDeviation="2.83"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-7" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="_무제_그라디언트_3-3" data-name="무제 그라디언트 3" x1="354.2" y1="556.24" x2="354.2" y2="519.5" xlink:href="#_무제_그라디언트_3"/>
+    <linearGradient id="_무제_그라디언트_12-2" data-name="무제 그라디언트 12" x1="323.14" y1="941.43" x2="323.14" y2="976.17" xlink:href="#_무제_그라디언트_12"/>
+  </defs>
+  <rect class="cls-23" y="53.86" width="501.67" height="1046.88"/>
+  <path class="cls-26" d="M0,0v111.05C0,124.02,10.51,134.53,23.48,134.53h454.71c12.97,0,23.48-10.51,23.48-23.48V0H0Z"/>
+  <g class="cls-27">
+    <rect class="cls-11" x="147.65" y="838.09" width="206.37" height="47.7" rx="23.85" ry="23.85"/>
+  </g>
+  <text class="cls-5" transform="translate(159.04 867.68)"><tspan x="0" y="0">입력 완료 -1코인</tspan></text>
+  <text class="cls-20" transform="translate(199.17 500.07)"><tspan class="cls-22" x="0" y="0">밥약 타임</tspan><tspan class="cls-4" x="86.66" y="0" xml:space="preserve"> *</tspan></text>
+  <text class="cls-21" transform="translate(207.5 605.81)"><tspan x="0" y="0">밥약 메뉴</tspan></text>
+  <g class="cls-10">
+    <rect class="cls-19" x="58.46" y="625.24" width="384.74" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-15" transform="translate(236.83 647.55)"><tspan x="0" y="0">컵밥</tspan></text>
+  <text class="cls-21" transform="translate(160.84 711.55)"><tspan x="0" y="0">다른 메뉴도 좋아요!</tspan></text>
+  <g class="cls-13">
+    <rect class="cls-19" x="58.46" y="730.98" width="384.74" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-15" transform="translate(164.5 753.28)"><tspan x="0" y="0">예, 아니오로 입력해주세요.</tspan></text>
+  <text class="cls-20" transform="translate(165.84 394.33)"><tspan class="cls-22" x="0" y="0">밥약 파트너 성별</tspan><tspan class="cls-4" x="153.32" y="0" xml:space="preserve"> *</tspan></text>
+  <g class="cls-7">
+    <rect class="cls-19" x="58.75" y="413.76" width="178" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-2" transform="translate(126.75 436.07)"><tspan x="0" y="0">동성만</tspan></text>
+  <g class="cls-14">
+    <rect class="cls-17" x="265.2" y="413.76" width="178" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-16" transform="translate(326.2 436.07)"><tspan x="0" y="0">상관없음</tspan></text>
+  <g class="cls-25">
+    <rect class="cls-19" x="58.75" y="519.5" width="178" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-2" transform="translate(101.05 541.81)"><tspan x="0" y="0">12-14시(점심)</tspan></text>
+  <g class="cls-12">
+    <rect class="cls-18" x="265.2" y="519.5" width="178" height="36.74" rx="18.37" ry="18.37"/>
+  </g>
+  <text class="cls-16" transform="translate(307.5 541.81)"><tspan x="0" y="0">18-20시(저녁)</tspan></text>
+  <text class="cls-1" transform="translate(143.03 283.45) skewX(-5)"><tspan x="0" y="0">밥약 신청</tspan></text>
+  <text class="cls-6" transform="translate(56.75 86.34) rotate(-180)"><tspan x="0" y="0">-&gt;</tspan></text>
+  <text class="cls-6" transform="translate(204.83 102.05)"><tspan x="0" y="0">밥약 신청</tspan></text>
+  <g>
+    <g>
+      <path class="cls-9" d="M66.45,941.43c.59.02,1.11.19,1.55.51l15.45,14.6c.53.47.74,1.04.78,1.72v1.09c-.07,1.82-2,2.94-3.79,2.8v10.72c-.3,1.71-1.53,3.2-3.45,3.3h-6.81c-.52-.05-.82-.3-.92-.79v-8.43c-.11-.77-.48-1.25-1.27-1.5h-4.23c-.8.26-1.15.73-1.26,1.5v8.24c-.09.55-.29.95-.93.98h-6.81c-1.92-.09-3.17-1.6-3.44-3.31v-10.72c-1.8.13-3.65-.95-3.8-2.74v-1.22c.04-.64.27-1.18.77-1.63l15.37-14.54c.44-.42.98-.54,1.58-.59h1.22Z"/>
+      <text class="cls-8" transform="translate(59.725 1000.2933) scale(1.0569 1)"><tspan x="0" y="0">홈</tspan></text>
+    </g>
+    <g>
+      <polygon class="cls-9" points="147.93 954.4 147.11 954.4 147.4 956.31 147.93 954.4"/>
+      <path class="cls-9" d="M162.08,941.43h-25.13c-.78,0-1.41.6-1.41,1.34v32.07c0,.74.63,1.34,1.41,1.34h25.13c.78,0,1.41-.6,1.41-1.34v-32.07c0-.74-.63-1.34-1.41-1.34ZM142.72,952.56h1.44l-.62-2.66,2.83-.32.46,2.98h1.61l.71-2.59,1.28.02.53,2.57h1.6l.74-2.86h2.91l-.93,2.86h1.04v1.85h-1.65l-1.66,5.14-2.3.03-1.04-5.17h-.14l-.8,5.27h-2.88l-1.25-5.27h-1.87v-1.85ZM159.94,968.71h-20.85v-1.39h20.85v1.39ZM159.94,964.54h-20.85v-1.39h20.85v1.39Z"/>
+      <polygon class="cls-9" points="152.07 954.4 151.32 954.4 151.66 956.02 152.07 954.4"/>
+      <text class="cls-8" transform="translate(137.2016 1000.2933) scale(1.0569 1)"><tspan x="0" y="0">스캔</tspan></text>
+    </g>
+    <g>
+      <text class="cls-8" transform="translate(392.5785 1000.2933) scale(1.0569 1)"><tspan x="0" y="0">마이페이지</tspan></text>
+      <g>
+        <path class="cls-9" d="M421.34,972.17c-3.36-2.57-7.9-3.68-12.39-3.89-.47-.02-.87-.1-1.36-.06-.97.08-1.89-.49-1.89-1.36l.02-20.74c0-.81,1.06-1.27,1.84-1.22l1.12.07c2.59.16,5.12.53,7.47,1.45,2.49.98,4.72,2.49,5.96,4.56v21.71c-.33-.08-.49-.31-.77-.53Z"/>
+        <path class="cls-9" d="M435.73,968.44c-3.72.37-7.87,1.69-10.5,3.87-.19.16-.34.33-.61.39v-21.71c1.22-2.05,3.48-3.6,5.95-4.56s4.88-1.29,7.47-1.45l1.12-.07c.78-.05,1.85.42,1.85,1.22v20.88c0,.83-1.12,1.3-1.94,1.21-.48-.05-.79.04-1.2.06s-.83.03-1.26.07l-.88.09Z"/>
+      </g>
+    </g>
+    <g>
+      <text class="cls-8" transform="translate(221.933 1000.2933) scale(1.0569 1)"><tspan x="0" y="0">채팅</tspan></text>
+      <path class="cls-9" d="M253.68,956.5c-.15-5.05-3.71-9.45-8.13-12.07-10.87-6.45-27.5-2.3-30.6,10.34l-.13,1.71-.03,2.37c.04,3.47,1.88,6.66,4.26,9.21.62,2.13-.17,4.52-1.89,6.15-.43.58-.29,1.43.38,1.79.33.18,1.41.19,1.81.13,2.9-.43,5.5-1.24,7.59-3.29,6.25,2.09,13.52,1.39,19.12-2.14,4.18-2.63,7.47-6.95,7.65-11.76l-.02-2.43Z"/>
+    </g>
+    <g>
+      <text class="cls-3" transform="translate(310.8295 1000.2933) scale(1.0569 1)"><tspan x="0" y="0">밥약</tspan></text>
+      <path class="cls-24" d="M323.78,941.43c1.23.06,2.36.56,3.08,1.53,2.77-1.1,6.08.74,6.5,3.53,2.95.4,4.89,3.51,3.73,6.12,1.06.68,1.53,1.85,1.8,2.98,1.37-.07,2.34.04,2.38,1.54.07,2.62-.96,5.8-2.33,8.1-1.69,2.84-4.24,5.26-7.31,6.74.35,1.87-.94,4.12-3.22,4.2h-10.57c-2.27-.09-3.56-2.29-3.22-4.2-5.63-2.68-9.67-8.82-9.63-14.74,0-.91.25-1.5,1.32-1.64h1.11c.16-1.15.75-2.31,1.75-2.99-1.16-2.61.79-5.72,3.73-6.11.42-2.79,3.73-4.62,6.5-3.53.67-.92,1.82-1.5,3.01-1.54h1.36ZM336.26,955.73c-.34-1.55-1.78-1.52-2.02-2.27-.12-.39-.08-.76.14-1.07.55-.74.63-1.68.13-2.47-.46-.72-1.31-1.18-2.27-1.1-.74.06-1.42-.49-1.35-1.22.08-.92-.37-1.76-1.17-2.21s-1.83-.39-2.61.12c-.63.41-1.48.2-1.79-.44-.42-.84-1.27-1.37-2.22-1.35-.91.01-1.74.53-2.15,1.35-.31.64-1.16.85-1.79.44-.8-.52-1.82-.58-2.66-.09-.78.45-1.21,1.28-1.12,2.18.07.73-.61,1.28-1.35,1.22-.97-.08-1.82.38-2.27,1.1-.5.79-.41,1.73.13,2.47.23.31.27.68.14,1.07-.24.75-1.7.73-2.01,2.27h26.24Z"/>
+    </g>
+  </g>
+</svg>
