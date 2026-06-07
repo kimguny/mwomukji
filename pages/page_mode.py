@@ -5,9 +5,10 @@ import styles
 
 class ModePage(QWidget):
 
-    def __init__(self, go_back, go_select, go_result):
+    def __init__(self, go_back, go_select, go_result, go_browse):
         super().__init__()
         self.go_result = go_result
+        self.go_browse = go_browse
         self.setStyleSheet(styles.WINDOW)
 
         outer = QVBoxLayout()
@@ -44,9 +45,16 @@ class ModePage(QWidget):
         select_btn = QPushButton("직접 선택하기")
         select_btn.setFixedSize(280, 52)
         select_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        select_btn.setStyleSheet(styles.OUTLINE_BTN)
+        select_btn.setStyleSheet(styles.PRIMARY_BTN)
         select_btn.setFont(styles.font(15))
         select_btn.clicked.connect(go_select)
+
+        browse_btn = QPushButton("카테고리 탐색")
+        browse_btn.setFixedSize(280, 52)
+        browse_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        browse_btn.setStyleSheet(styles.PRIMARY_BTN)
+        browse_btn.setFont(styles.font(15))
+        browse_btn.clicked.connect(go_browse)
 
         center = QVBoxLayout()
         center.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -57,6 +65,7 @@ class ModePage(QWidget):
         center.addSpacing(24)
         center.addWidget(random_btn, alignment=Qt.AlignmentFlag.AlignCenter)
         center.addWidget(select_btn, alignment=Qt.AlignmentFlag.AlignCenter)
+        center.addWidget(browse_btn, alignment=Qt.AlignmentFlag.AlignCenter)
 
         outer.addLayout(top_row)
         outer.addStretch(1)

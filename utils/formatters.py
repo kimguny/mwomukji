@@ -11,3 +11,8 @@ def format_price(price_min, price_max):
 # 히스토리 메뉴 리스트를 "메뉴1  ·  메뉴2  ·  메뉴3" 형식 문자열로 변환한다
 def format_history(history):
     return "  ·  ".join([m["name"] for m in history])
+
+
+# 메뉴 하나를 "이름 | 가격 | 맵기" 형식 문자열로 변환한다
+def format_menu_item(menu):
+    return f"{menu['name']}  |  {format_price(menu['price_min'], menu['price_max'])}  |  {spicy_stars(menu['spicy_level'])}"

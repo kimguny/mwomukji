@@ -22,3 +22,13 @@ def filter_menus(menus, category=None, price_range=None, spicy_level=None):
 # 조건에 맞는 메뉴 개수를 반환한다
 def count_filtered(menus, category=None, price_range=None, spicy_level=None):
     return len(filter_menus(menus, category, price_range, spicy_level))
+
+
+# 메뉴 리스트를 기준에 따라 정렬해 반환한다
+# by: "price" (가격 오름차순) / "spicy" (맵기 오름차순)
+def sort_menus(menus, by="price"):
+    if by == "price":
+        return sorted(menus, key=lambda m: m["price_min"])
+    elif by == "spicy":
+        return sorted(menus, key=lambda m: m["spicy_level"])
+    return menus

@@ -16,3 +16,9 @@ def get_menu_count():
 def get_categories():
     menus = load_menus()
     return list(dict.fromkeys(m["category"] for m in menus))
+
+
+# 특정 카테고리에 해당하는 메뉴만 반환한다
+def get_menus_by_category(category):
+    menus = load_menus()
+    return [m for m in menus if m["category"] == category]

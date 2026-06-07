@@ -3,15 +3,16 @@ from PyQt6.QtWidgets import (
     QLabel, QPushButton, QButtonGroup, QScrollArea, QFrame
 )
 from PyQt6.QtCore import Qt
-from utils.loader import load_menus
-from utils.filter import filter_menus, count_filtered
+from utils.loader import load_menus, get_categories
+from utils.filter import filter_menus, count_filtered, sort_menus
 import styles
 
-CATEGORIES = [
-    ("한식", "한식"), ("중식", "중식"), ("일식", "일식"),
-    ("양식", "양식"), ("분식", "분식"), ("치킨", "치킨"),
-    ("피자", "피자"), ("패스트푸드", "패스트푸드"), ("상관없음", None),
-]
+# 카테고리 목록을 JSON에서 동적으로 불러와 (표시 텍스트, 값) 쌍으로 변환
+def build_categories():
+    cats = get_categories()
+    return [(c, c) for c in cats] + [("상관없음", None)]
+
+CATEGORIES = build_categories()
 
 PRICE_OPTIONS = [
     ("~1만원", (0, 10000)),
@@ -31,6 +32,11 @@ def make_section_label(text):
     label.setFont(styles.font(14))
     label.setStyleSheet(f"color: {styles.TEXT}; background: transparent;")
     return label
+
+
+def get_val(group):
+    btn = group.checkedButton()
+    return btn.property("value") if btn else None
 
 
 def make_toggle_group(options):
@@ -161,10 +167,6 @@ class SelectPage(QWidget):
         self.count_label.setText("")
 
     def update_count(self):
-        def get_val(group):
-            btn = group.checkedButton()
-            return btn.property("value") if btn else None
-
         menus = load_menus()
         count = count_filtered(
             menus,
@@ -180,10 +182,6 @@ class SelectPage(QWidget):
             self.count_label.setStyleSheet(f"color: {styles.ACCENT}; background: transparent;")
 
     def on_recommend(self):
-        def get_val(group):
-            btn = group.checkedButton()
-            return btn.property("value") if btn else None
-
         menus = load_menus()
         filtered = filter_menus(
             menus,
@@ -192,4 +190,4 @@ class SelectPage(QWidget):
             spicy_level=get_val(self.spicy_group),
         )
         if filtered:
-            self.go_result(filtered)
+            self.go_result(sort_menus(filtered, by="price"))

@@ -10,11 +10,13 @@ import styles
 
 class ResultPage(QWidget):
 
-    def __init__(self, go_back):
+    def __init__(self, go_back, go_select):
         super().__init__()
         self.go_back = go_back
+        self.go_select = go_select
         self.remaining = []
         self.history = []
+        self.mode = "random"
         self.setStyleSheet(styles.WINDOW)
 
         outer = QVBoxLayout()
@@ -43,6 +45,19 @@ class ResultPage(QWidget):
             border-radius: 15px;
             padding: 0 16px;
         """)
+
+        self.cat_badge = QLabel("")
+        self.cat_badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.cat_badge.setFixedHeight(30)
+        self.cat_badge.setFont(styles.font(11))
+        self.cat_badge.setStyleSheet(f"""
+            background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                stop:0 {styles.ACCENT}, stop:1 {styles.PINK});
+            color: white;
+            border-radius: 15px;
+            padding: 0 16px;
+        """)
+        self.cat_badge.setVisible(False)
 
         self.name_label = QLabel("")
         self.name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -135,10 +150,16 @@ class ResultPage(QWidget):
         history_card.setLayout(history_card_layout)
         self.history_card = history_card
 
+        tag_row = QHBoxLayout()
+        tag_row.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        tag_row.setSpacing(8)
+        tag_row.addWidget(self.tag)
+        tag_row.addWidget(self.cat_badge)
+
         center = QVBoxLayout()
         center.setAlignment(Qt.AlignmentFlag.AlignCenter)
         center.setSpacing(12)
-        center.addWidget(self.tag, alignment=Qt.AlignmentFlag.AlignCenter)
+        center.addLayout(tag_row)
         center.addWidget(self.name_label)
         center.addSpacing(6)
         center.addWidget(card, alignment=Qt.AlignmentFlag.AlignCenter)
@@ -155,11 +176,23 @@ class ResultPage(QWidget):
         self.setLayout(outer)
 
     # 새로운 메뉴 리스트로 결과 화면을 초기화하고 첫 추천을 표시한다
-    def start(self, menus):
+    def start(self, menus, mode="random", category=None):
+        self.mode = mode
         self.remaining = menus[:]
         self.history = []
         self._clear_history_ui()
         self.again_btn.setEnabled(True)
+        if mode == "random":
+            self.again_btn.setText("다시 추천받기")
+            self.history_card.setVisible(True)
+        else:
+            self.again_btn.setText("다시 선택하기")
+            self.history_card.setVisible(False)
+        if category:
+            self.cat_badge.setText(category)
+            self.cat_badge.setVisible(True)
+        else:
+            self.cat_badge.setVisible(False)
         self._pick_next()
 
     def _pick_next(self):
@@ -176,7 +209,10 @@ class ResultPage(QWidget):
             self.again_btn.setText("더 이상 없어요")
 
     def on_again(self):
-        self._pick_next()
+        if self.mode == "random":
+            self._pick_next()
+        else:
+            self.go_select()
 
     def _update_card(self, menu):
         self.name_label.setText(menu["name"])

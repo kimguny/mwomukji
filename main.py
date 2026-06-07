@@ -4,6 +4,7 @@ from pages.page_home import HomePage
 from pages.page_mode import ModePage
 from pages.page_select import SelectPage
 from pages.page_result import ResultPage
+from pages.page_browse import BrowsePage
 import styles
 
 
@@ -20,15 +21,17 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.stack)
 
         self.home   = HomePage(self.go_mode)
-        self.mode   = ModePage(self.go_home, self.go_select, self.go_result)
-        self.select = SelectPage(self.go_mode, self.go_result)
-        self.result = ResultPage(self.go_mode)
+        self.mode   = ModePage(self.go_home, self.go_select, self.go_result_random, self.go_browse)
+        self.select = SelectPage(self.go_mode, self.go_result_select)
+        self.result = ResultPage(self.go_mode, self.go_select)
+        self.browse = BrowsePage(self.go_mode, self.go_result_browse)
 
-        # 인덱스 순서: 0=홈, 1=모드, 2=선택, 3=결과
+        # 인덱스 순서: 0=홈, 1=모드, 2=선택, 3=결과, 4=탐색
         self.stack.addWidget(self.home)
         self.stack.addWidget(self.mode)
         self.stack.addWidget(self.select)
         self.stack.addWidget(self.result)
+        self.stack.addWidget(self.browse)
 
     def go_home(self):
         self.stack.setCurrentIndex(0)
@@ -40,10 +43,20 @@ class MainWindow(QMainWindow):
         self.select.reset()
         self.stack.setCurrentIndex(2)
 
-    # 필터링된 전체 메뉴 리스트를 결과 페이지에 전달한 후 결과 화면으로 전환한다
-    def go_result(self, menus):
-        self.result.start(menus)
+    def go_result_random(self, menus):
+        self.result.start(menus, mode="random")
         self.stack.setCurrentIndex(3)
+
+    def go_result_select(self, menus):
+        self.result.start(menus, mode="select")
+        self.stack.setCurrentIndex(3)
+
+    def go_result_browse(self, menus, category):
+        self.result.start(menus, mode="random", category=category)
+        self.stack.setCurrentIndex(3)
+
+    def go_browse(self):
+        self.stack.setCurrentIndex(4)
 
 
 app = QApplication(sys.argv)
